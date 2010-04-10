@@ -55,21 +55,21 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
-      s.add_runtime_dependency(%q<mongo>, [">= 0.20.1"])
-      s.add_runtime_dependency(%q<bson_ext>, [">= 0.20.1"])
+      s.add_runtime_dependency(%q<mongo>, [">= 0.19.3"])
+      s.add_runtime_dependency(%q<bson_ext>, [">= 0.19.3"])
       s.add_runtime_dependency(%q<mongo_mapper>, [">= 0.7.2"])
       s.add_runtime_dependency(%q<ghazel-daemons>, [">= 1.0.12"])
     else
       s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
-      s.add_dependency(%q<mongo>, [">= 0.20.1"])
-      s.add_dependency(%q<bson_ext>, [">= 0.20.1"])
+      s.add_dependency(%q<mongo>, [">= 0.19.3"])
+      s.add_dependency(%q<bson_ext>, [">= 0.19.3"])
       s.add_dependency(%q<mongo_mapper>, [">= 0.7.2"])
       s.add_dependency(%q<ghazel-daemons>, [">= 1.0.12"])
     end
   else
     s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
-    s.add_dependency(%q<mongo>, [">= 0.20.1"])
-    s.add_dependency(%q<bson_ext>, [">= 0.20.1"])
+    s.add_dependency(%q<mongo>, [">= 0.19.3"])
+    s.add_dependency(%q<bson_ext>, [">= 0.19.3"])
     s.add_dependency(%q<mongo_mapper>, [">= 0.7.2"])
     s.add_dependency(%q<ghazel-daemons>, [">= 1.0.12"])
   end

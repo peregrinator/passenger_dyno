@@ -15,8 +15,8 @@ begin
     gem.authors = ["Bob Burbach"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     gem.requirements << 'MongoDb  >= 1.4.0'
-    gem.add_dependency('mongo',        '>= 0.20.1')
-    gem.add_dependency('bson_ext',    '>= 0.20.1')
+    gem.add_dependency('mongo',        '>= 0.19.3')
+    gem.add_dependency('bson_ext',    '>= 0.19.3')
     gem.add_dependency('mongo_mapper', '>= 0.7.2')
     gem.add_dependency('ghazel-daemons', '>= 1.0.12')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
