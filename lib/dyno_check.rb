@@ -1,26 +1,36 @@
+require 'erb'
+require 'mongo'
+require 'mongo_mapper'
+
 class DynoCheck
   
   def initialize(options={})
-    config_path = options.delete(:config_path) || '/opt/dyno'
+    config_path     = options.delete(:config_path) || '/opt/dyno'
+    dyno_config     = YAML::load(ERB.new(IO.read(File.join(config_path, 'config.yml'))).result)['dyno']
+    database_config = YAML::load(ERB.new(IO.read(File.join(config_path, 'database.yml'))).result)['mongo']
     
-    @servers                       = YAML::load(ERB.new(IO.read(File.join(config_path, 'config', 'config.yml'))).result)['dyno']
+    MongoMapper.connection = Mongo::Connection.new(database_config['host'], database_config['port'])
+    MongoMapper.database   = database_config['database']
+    
+    @servers                       = dyno_config['servers']
     @passenger_memory_stats_output = `passenger-memory-stats`
     @passenger_status_output       = `passenger-status`
-    @dyno_server_check = DynoServerCheck.create(:checked_at => @current_time)
   end
   
   def run
-    @current_time = Time.now
     @servers.each do |server_name|
       dyno_server = DynoServer.find_by_name(server_name)
       if dyno_server.nil?
         dyno_server = DynoServer.new(:name => server_name)
       end
       
+      @current_time = Time.now
+      @dyno_server_check = DynoServerCheck.create(:checked_at => @current_time)
+      
       overview_check
       thread_check
       
-      dyno_server.hopper_server_checks << @dyno_server_check
+      dyno_server.dyno_server_checks << @dyno_server_check
       dyno_server.save
     end
   end
@@ -41,9 +51,9 @@ class DynoCheck
     passenger_memory  = overview_stats[5].split("\t")[1]
     
     @dyno_server_check.overview = PassengerOverview.new(:total_apache_processes    => apache_workers,
-                                                          :total_apache_memory       => apache_memory,
-                                                          :total_passenger_processes => passenger_process,
-                                                          :total_passenger_memory    => passenger_memory)
+                                                        :total_apache_memory       => apache_memory,
+                                                        :total_passenger_processes => passenger_process,
+                                                        :total_passenger_memory    => passenger_memory)
   end
   
   def thread_check
