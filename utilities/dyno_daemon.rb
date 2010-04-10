@@ -7,7 +7,7 @@ require 'passenger_dyno'
 daemon_options = {
   :multiple   => false,
   :dir_mode   => :normal,
-  :dir        => '/var/run/pids',
+  :dir        => '/var/run',
   :backtrace  => true
 }
 
