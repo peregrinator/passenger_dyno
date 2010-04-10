@@ -5,8 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "passenger_dyno"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "Make tracking passenger server usage easier with MongoDb"
+    gem.description = <<-EOF
+      Store passenger memory usage and other useful statitics in MongoDb. Use
+      passenger_dyno_clinet to see those stats rendered with javascript!
+    EOF
     gem.email = "bob.burbach@gmail.com"
     gem.homepage = "http://github.com/peregrinator/passenger_dyno"
     gem.authors = ["Bob Burbach"]

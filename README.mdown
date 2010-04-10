@@ -1,6 +1,9 @@
 = passenger_dyno
 
-Description goes here.
+
+== Configuration
+
+* place the dyno.yml file in /opt/dyno
 
 == Note on Patches/Pull Requests
  
