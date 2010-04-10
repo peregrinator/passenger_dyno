@@ -1,0 +1,6 @@
+mongo:
+  database: passenger_dyno
+  host:     localhost
+  port:     27017
+  # user:     root
+  # password:

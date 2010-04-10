@@ -4,6 +4,8 @@
 == Configuration
 
 * place the dyno.yml file in /opt/dyno
+* create the directory for the pid file (should already exist on most unix systems)
+  - mkdir -p /var/run
 
 == Note on Patches/Pull Requests
  
