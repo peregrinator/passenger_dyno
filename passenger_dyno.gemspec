@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
      "lib/passenger/passenger_thread.rb",
      "lib/passenger_dyno.rb",
      "passenger_dyno.gemspec",
+     "pkg/passenger_dyno-0.0.1.gem",
      "test/helper.rb",
      "test/test_passenger_dyno.rb",
      "utilities/dyno_daemon.rb",
