@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{passenger_dyno}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bob Burbach"]
-  s.date = %q{2010-04-10}
+  s.date = %q{2010-04-11}
   s.description = %q{      Store passenger memory usage and other useful statitics in MongoDb. Use
       passenger_dyno_clinet to see those stats rendered with javascript!
 }
